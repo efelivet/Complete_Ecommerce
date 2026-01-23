@@ -61,11 +61,11 @@ const handleCheckout = async () => {
     
 <Box sx ={{display:"flex", flex:{xs:1,md:2},justifyContent:"space-between",gap:2,flexDirection:"column" }}>
   {cart.map((product)=>(
-    <Paper elevation={2} sx ={{display:"flex",flexDirection:{xs:"column",md:"row"},gap:{xs:1,md:10}}}>
+    <Paper key={product.productId._id} elevation={2} sx ={{display:"flex",flexDirection:{xs:"column",md:"row"},gap:{xs:1,md:10}}}>
     <Box sx ={{display:"flex",flexDirection:{xs:"colum",md:"row"}}}>  
       <Box >
     <Box>  <img src ={`${BASE_URL}/Public/img/${product.productId.img}`} alt =""
-         style ={{width:{xs:"100px",md:"100%"},height:"100px",objectFit:"contain"}} /></Box> 
+         sx ={{width:{xs:"100px",md:"100%"},height:"100px",objectFit:"contain"}} /></Box> 
     <Box sx ={{display:"flex"}}>
       <Button  onClick={() =>
     dispatch(
