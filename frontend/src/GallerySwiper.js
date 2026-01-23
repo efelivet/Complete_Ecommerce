@@ -15,16 +15,15 @@ export default function GallerySwiper({ searchTerm, products }) {
  const filteredProducts = products.filter((product) => {
   const term = searchTerm.toLowerCase();
 
-  // 1. Check if the term is in the title
+  
   const matchesTitle = product.title.toLowerCase().includes(term);
 
-  // 2. Check if the term exists inside the categories array
-  // We use .some() because categories is an array in your schema
+ 
   const matchesCategory = product.categories?.some(cat => 
     cat.toLowerCase() === term
   );
 
-  // Return the product if it matches either the title OR the category
+ 
   return matchesTitle || matchesCategory;
 }).slice(0, 15);
   return (

@@ -24,11 +24,9 @@ app.use(cookieParser());
  app.use(express.json());
 
 
- mongoose.connect(process.env.MONGO_URL,{
-    useNewUrlParser:true,
-    useUnifiedTopology:true,
- }).then(()=>console.log("mongoDB Connected Sucessfully")
-).catch((err)=>console.error("Mongodb connection error",  err.message))
+ mongoose.connect(process.env.MONGO_URL)
+  .then(() => console.log("mongoDB Connected Sucessfully"))
+  .catch((err) => console.error("Mongodb connection error", err.message));
 
 
 app.use("/api",authRoute)

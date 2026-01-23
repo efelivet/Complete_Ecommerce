@@ -201,7 +201,7 @@ const drawerLinks = [
           </IconButton>
 
           <Typography variant="h6" sx={{ ml:{xs:0,md:0} }}>
-            JUMIA
+            SHOPPING
           </Typography>
 
      <Box sx ={{display:"flex",height:30}}>
