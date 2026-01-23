@@ -1,12 +1,13 @@
  import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import axios from "axios";
+
+import {API} from "../api";
 
 /* ================= REGISTER USER ================= */
 export const registerUser = createAsyncThunk(
   "auth/register",
   async ({ username, password, email }, { rejectWithValue }) => {
     try {
-      const res = await axios.post("http://localhost:5000/api/register", {
+      const res = await API.post("/register", {
         username,
         password,
         email,
@@ -26,8 +27,8 @@ export const loginUser = createAsyncThunk(
   "auth/loginUser",
   async ({ username, password }, { rejectWithValue }) => {
     try {
-      const res = await axios.post(
-        "http://localhost:5000/api/login",
+      const res = await API.post(
+        "/login",
         { username, password},
         { withCredentials: true } 
       );

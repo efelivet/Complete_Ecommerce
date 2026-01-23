@@ -1,12 +1,12 @@
 import { createSlice,createAsyncThunk } from '@reduxjs/toolkit'
-import axios from "axios"
+import {API} from "../api";
 
 export const addToCart = createAsyncThunk(
   "cart/addToCart",
   async ({ productId, quantity }, { rejectWithValue }) => {
     try {
-      const res = await axios.post(
-        "http://localhost:5000/api/cart/create",
+      const res = await API.post(
+        "/cart/create",
         {
           products: [{ productId, quantity }],
         },
@@ -26,8 +26,8 @@ export const removeFromCart = createAsyncThunk(
   "cart/removeFromCart",
   async ({ productId }, { rejectWithValue }) => {
     try {
-      const res = await axios.delete(
-        `http://localhost:5000/api/cart/remove/${productId}`,
+      const res = await API.delete(
+        `/cart/remove/${productId}`,
         { withCredentials: true }
       );
 
@@ -52,8 +52,8 @@ export const updateCartQty = createAsyncThunk(
           p.productId._id === productId ? quantity : p.quantity,
       }));
 
-      const res = await axios.put(
-        "http://localhost:5000/api/cart/update/me",
+      const res = await API.put(
+        "/cart/update/me",
         { products },
         { withCredentials: true }
       );
