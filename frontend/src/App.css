@@ -1,0 +1,54 @@
+*{
+  margin:0;
+  padding:0;
+  box-sizing: border-box;
+
+}
+
+
+.myFadeSwiper {
+  width: 100%;
+  overflow: hidden; 
+  position: relative; 
+  margin: 0 auto; 
+ 
+}
+
+.myFadeSwiper .swiper-pagination {
+ 
+  position: absolute; 
+  bottom: 20px;
+
+  z-index: 10; 
+}
+
+.myFadeSwiper .swiper-pagination-bullet {
+  
+  background-color: darkslategray;
+  opacity: 0.6;
+  margin: 0 4px;
+}
+
+.myFadeSwiper .swiper-pagination-bullet-active {
+  background-color: orange;
+  opacity: 1; 
+}
+
+form{
+  width:300px;
+}
+form input{
+  margin:4px;
+  padding:4px;
+}
+
+@media screen and (max-width:600px) {
+ form {
+  width:180px;
+ 
+}
+form input{
+margin: 1px;
+padding: 4;
+}
+}
