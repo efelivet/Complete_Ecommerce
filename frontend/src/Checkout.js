@@ -84,7 +84,7 @@ const handleCheckout = async () => {
     <Box>{product.productId.desc} </Box> 
     </Box>  
   <Box sx ={{display:"flex",flexDirection:"column",alignItems:"center"}}>
-    <Typography >${product.productId?.price ? product.productId.price:""}</Typography>
+    <Typography >${product.productId?.price ? product.productId.price.toLocaleString() : "0.00"}</Typography>
   <Box sx={{display:"flex",justifyContent:"center",alignItems:"center"}}>
    <Button  onClick={() =>
       dispatch(
