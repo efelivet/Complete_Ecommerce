@@ -1,7 +1,6 @@
  import axios from "axios";
 
- const BASE_URL =window.location.hostname ==="localhost" 
- ? "https://ecommerce-backend-kmni.onrender.com":"http://localhost:5000";
+ const BASE_URL ="https://ecommerce-backend-kmni.onrender.com";
 const API = axios.create({
   baseURL: `${BASE_URL}/api`,
   withCredentials: true, 
