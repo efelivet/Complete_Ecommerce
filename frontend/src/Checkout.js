@@ -64,8 +64,9 @@ const handleCheckout = async () => {
     <Paper key={product.productId._id} elevation={2} sx ={{display:"flex",flexDirection:{xs:"column",md:"row"},gap:{xs:1,md:10}}}>
     <Box sx ={{display:"flex",flexDirection:{xs:"colum",md:"row"}}}>  
       <Box >
-    <Box>  <img src ={`${BASE_URL}/Public/img/${product.productId.img}`} alt =""
-         sx ={{width:{xs:"100px",md:"100%"},height:"100px",objectFit:"contain"}} /></Box> 
+    <Box>  <img src ={product.productId?.img ? `${BASE_URL}/Public/img/${product.productId.img}`:""} alt =""
+         style ={{width:100,height:"100px",objectFit:"contain"}} />
+         </Box> 
     <Box sx ={{display:"flex"}}>
       <Button  onClick={() =>
     dispatch(
@@ -83,7 +84,7 @@ const handleCheckout = async () => {
     <Box>{product.productId.desc} </Box> 
     </Box>  
   <Box sx ={{display:"flex",flexDirection:"column",alignItems:"center"}}>
-    <Typography >${product.productId.price}</Typography>
+    <Typography >${product.productId?.price ? product.productId.price:""}</Typography>
   <Box sx={{display:"flex",justifyContent:"center",alignItems:"center"}}>
    <Button  onClick={() =>
       dispatch(
