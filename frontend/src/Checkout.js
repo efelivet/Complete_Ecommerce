@@ -36,7 +36,7 @@ const handleCheckout = async () => {
   setLoading(true);
   try {
     const res = await API.post(
-      "/checkout",
+      "/checkout/create",
       {
         shippingAddress: shipping,
         

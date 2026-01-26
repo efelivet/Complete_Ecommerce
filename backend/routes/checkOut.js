@@ -18,7 +18,7 @@ if (!FLUTTERWAVE_SECRET_KEY) {
 }
 
 
-router.post("/", verifyToken, async (req, res) => {
+router.post("/create", verifyToken, async (req, res) => {
   try {
     const userId = req.user.id;
     const { shippingAddress } = req.body;
