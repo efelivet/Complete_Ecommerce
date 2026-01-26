@@ -88,7 +88,7 @@ router.post("/create", verifyToken, async (req, res) => {
       tx_ref,
       amount: totalAmount,
       currency: "NGN",
-      redirect_url: "http://localhost:3000/paymentsuccess", 
+      redirect_url: "https://ecommax-site.onrender.com/paymentsuccess", 
       customer: {
         email: req.user.email,
         name: req.user.username || req.user.email.split("@")[0],
