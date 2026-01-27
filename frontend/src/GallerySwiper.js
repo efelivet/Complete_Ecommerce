@@ -2,10 +2,10 @@ import React from "react";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/navigation';
-import "./GallerySwiper.css";
 import { Navigation } from 'swiper/modules';
 import {Link} from "react-router-dom"
 import {Box} from "@mui/material"
+import "./App.css"
 
 import { BASE_URL } from "./api";
 
@@ -31,7 +31,7 @@ export default function GallerySwiper({ searchTerm, products }) {
       
       modules={[Navigation]}
       
-      slidesPerView={6}
+      slidesPerView={4}
       
       slidesPerGroup={3}
       

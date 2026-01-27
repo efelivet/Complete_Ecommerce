@@ -1,12 +1,13 @@
 import React from "react";
-import { Swiper, SwiperSlide } from "swiper/react";
-import {Link} from "react-router-dom"
-import { BASE_URL } from "./api";
-import "swiper/css";
-import "swiper/css/navigation";
-import "./PointerSwiper.css";
-import { Navigation, FreeMode } from "swiper/modules";
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/css';
+import 'swiper/css/navigation';
 
+import { Navigation } from 'swiper/modules';
+import {Link} from "react-router-dom"
+import {Box} from "@mui/material"
+import "./App.css"
+import { BASE_URL } from "./api";
 
 
 export default function PointerSwiper({ products, searchTerm }) {
@@ -28,44 +29,37 @@ export default function PointerSwiper({ products, searchTerm }) {
   return matchesTitle || matchesCategory;
 }).slice(16, 28);
   return (
-    <Swiper
-      modules={[Navigation, FreeMode]}
-      navigation={true}
-      freeMode={true}
-      grabCursor={true}
-      slidesPerView="auto"
-      spaceBetween={4}
-      freeModeMomentum={true}
-    >
-      {filteredProducts.map((product, index) => (
-        <SwiperSlide
-          key={index}
-          style={{
-            width: "180px", 
-            display:"flex",
-            flexDirection:"column",
-            alignItems:"center",
-            justifyContent:"center",
-          
-          }}
-       
-        >
-          <div className="image-wrapper">
-          <Link to ={`singleproduct/${product._id}`}>
-     
+     <Swiper
+        
+        modules={[Navigation]}
+        
+        slidesPerView={4}
+        
+        slidesPerGroup={3}
+        
+        spaceBetween={4} 
+        
+        navigation={true} 
+        
+        pagination={false} 
+         speed={1000}  
+        loop={false} 
+         rewind={true} 
+        key={filteredProducts.length} 
+      >
+        {filteredProducts.map((product) => (
+          <SwiperSlide key={product._id}>
+            <div className="image-wrapper">
+              <Link to ={`singleproduct/${product._id}`}>
+          <img src={`${BASE_URL}/Public/img/${product.img}`} alt={product.alt} 
+            className="gallery-image" />
+              <Box sx={{textAlign:"center",color:"orange",mb:2,
+                fontSize:{xs:8,md:14}}}>{product.title}</Box>
+              </Link>
              
-            <img
-              src={`${BASE_URL}/Public/img/${product.img}`} alt={product.alt} 
-         
-             className="gallery-image"
-            />
-          
-           <div style={{color:"orange",fontSize:14,textAlign:"center"}}>{product.title}</div>
-       
-         </Link>
-         </div>
-        </SwiperSlide>
-      ))}
-    </Swiper>
+            </div>
+          </SwiperSlide>
+        ))}
+      </Swiper>
   );
 }

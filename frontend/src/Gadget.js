@@ -28,7 +28,7 @@ const categories = [
       {categories.map((cat) => (
         <Box
           key={cat.name}
-          onClick={() => onCategoryClick(cat.name.toLowerCase())} // 2. Trigger the filter function
+          onClick={() => onCategoryClick(cat.name.toLowerCase())} 
           sx={{
             display: "flex",
             alignItems: "center",
@@ -39,7 +39,7 @@ const categories = [
           }}
         >
           <Box>{cat.icon}</Box>
-          <Typography sx={{ fontSize: 12, ml: 1 }}>{cat.name}</Typography>
+          <Typography sx={{ fontSize: "0.85rem", ml: 1 }}>{cat.name}</Typography>
         </Box>
       ))}
 

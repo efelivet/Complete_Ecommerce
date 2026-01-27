@@ -200,7 +200,7 @@ const drawerLinks = [
            
           </IconButton>
 
-          <Typography variant="h6" sx={{ ml:{xs:0,md:0} }}>
+          <Typography variant="h6" sx={{ ml:{xs:0,md:0},fontSize:"1rem" }}>
             LIVESTORE
           </Typography>
 
@@ -229,7 +229,7 @@ const drawerLinks = [
               color="inherit"
              
             >
-              <AccountCircle />
+              <AccountCircle sx={{fontSize:{xs:"1.5rem",md:"2rem"}}} />
             {arrowOpen? <KeyboardArrowUpIcon/>: <KeyboardArrowDownIcon/>}
              
             
@@ -240,6 +240,7 @@ const drawerLinks = [
             <Button  onClick={() => setActive(!active)}
       sx={{
         display:"flex",
+        padding:"0.4rem",
          backgroundColor: active ? "orange" : "white",
         color: active ? "white" : "black",
        
@@ -249,11 +250,11 @@ const drawerLinks = [
       }}>
 
               <ShoppingCartOutlinedIcon sx ={{fontSize:"medium"}}/>
-              <Typography sx ={{fontSize:"10px"}}>Cart</Typography>
+              <Typography sx ={{fontSize:"0.8rem"}}>Cart</Typography>
             </Button>
           
 
-           <Box sx ={{position:"absolute", top:-4, right:0, color:"orange" }}>          
+           <Box sx ={{position:"absolute", top:-4, right:-1, color:"orange" }}>          
              {totalQty}    
            </Box>
            </Link>
