@@ -200,7 +200,7 @@ const drawerLinks = [
            
           </IconButton>
 
-          <Typography variant="h6" sx={{ ml:{xs:0,md:0},fontSize:"1rem" }}>
+          <Typography variant="h6" sx={{ ml:{xs:0,md:0},fontSize:{xs:"1rem",md:"2.5rem"} }}>
             LIVESTORE
           </Typography>
 
@@ -249,8 +249,8 @@ const drawerLinks = [
         },
       }}>
 
-              <ShoppingCartOutlinedIcon sx ={{fontSize:"medium"}}/>
-              <Typography sx ={{fontSize:"0.8rem"}}>Cart</Typography>
+              <ShoppingCartOutlinedIcon sx ={{fontSize:"large"}}/>
+              <Typography sx ={{fontSize:{xs:"0.8rem",md:"1.5rem"}}}>Cart</Typography>
             </Button>
           
 

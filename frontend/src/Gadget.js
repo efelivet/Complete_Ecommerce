@@ -24,7 +24,7 @@ const categories = [
 
    
     return(
-      <Box>
+      <Box >
       {categories.map((cat) => (
         <Box
           key={cat.name}
@@ -35,7 +35,8 @@ const categories = [
             ml: 0.5,
             cursor: "pointer",
             "&:hover": { color: "green" },
-            py: 0.5
+            py: 0.5,
+            
           }}
         >
           <Box>{cat.icon}</Box>

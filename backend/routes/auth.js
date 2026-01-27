@@ -100,7 +100,7 @@ router.post("/login", async (req, res) => {
 
 
 // routes/auth.js
-router.get("/me", verifyToken, async (req, res) => {
+router.get("/getme", verifyToken, async (req, res) => {
   try {
     res.status(200).json(req.user)
   } catch (err) {

@@ -42,6 +42,19 @@ export const loginUser = createAsyncThunk(
   }
 );
 
+export const getMe = createAsyncThunk(
+  "auth/getMe",
+  async (_, { rejectWithValue }) => {
+    try {
+      const res = await API.get("/getme", { withCredentials: true });
+      return res.data; 
+    } catch (err) {
+     
+      return rejectWithValue(null);
+    }
+  }
+);
+
 const authSlice = createSlice({
   name: "auth",
   initialState: {
@@ -101,6 +114,18 @@ const authSlice = createSlice({
       .addCase(loginUser.rejected, (state, action) => {
         state.loading = false;
         state.error = action.payload;
+      })
+      /* ---------- GET ME (Persistence) ---------- */
+      .addCase(getMe.pending, (state) => {
+        state.loading = true;
+      })
+      .addCase(getMe.fulfilled, (state, action) => {
+        state.loading = false;
+        state.user = action.payload.user;
+      })
+      .addCase(getMe.rejected, (state) => {
+        state.loading = false;
+        state.user = null;
       }); 
   },
 });

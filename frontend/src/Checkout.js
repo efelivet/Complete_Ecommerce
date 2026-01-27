@@ -6,6 +6,7 @@ import SearchBar from "./SearchBar";
 import {useSelector} from "react-redux"
 import { useDispatch } from "react-redux";
 import { removeFromCart, updateCartQty } from "./redux/cartSlice";
+import { useNavigate } from "react-router-dom";
 import {API} from './api'
 import { BASE_URL } from "./api";
 const Checkout =() =>{
@@ -20,13 +21,22 @@ const [shipping, setShipping] = useState({
 });
 
 
-  const cart = useSelector((state) => state.cart.products);
+ const cart = useSelector((state) => state.cart.products);
  const amount = useSelector((state) => state.cart.amount);
+ const  user  = useSelector((state) => state.auth.user);
+
+ const navigate = useNavigate();
  
    const dispatch = useDispatch();
 
-
+console.log(user)
 const handleCheckout = async () => {
+
+if (!user) {
+    navigate("/login");
+    return;
+  }
+
      if (!shipping.fullName || !shipping.address || !shipping.phone) {
   alert("Please fill in all shipping details");
   setLoading(false);
@@ -64,9 +74,19 @@ const handleCheckout = async () => {
     <Paper key={product.productId._id} elevation={2} sx ={{display:"flex",flexDirection:{xs:"column",md:"row"},gap:{xs:1,md:10}}}>
     <Box sx ={{display:"flex",flexDirection:{xs:"colum",md:"row"}}}>  
       <Box >
-    <Box>  <img src ={product.productId?.img ? `${BASE_URL}/Public/img/${product.productId.img}`:""} alt =""
-         style ={{width:100,height:"100px",objectFit:"contain"}} />
-         </Box> 
+    <Box> 
+      {product.productId?.img ? (
+            <img 
+              src={`${BASE_URL}/Public/img/${product.productId.img}`} 
+              alt={product.productId.title || "product"} 
+              style={{ width: 100, height: "100px", objectFit: "contain" }} 
+            />
+          ) : (
+            <Box sx={{ width: 100, height: "100px", bgcolor: "#eee", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 10 }}>
+              No Image
+            </Box>
+          )}
+     </Box> 
     <Box sx ={{display:"flex"}}>
       <Button  onClick={() =>
     dispatch(
@@ -159,6 +179,11 @@ const handleCheckout = async () => {
 >
  {loading ? "Processing..." : "Checkout"}
 </Button>
+{!user && (
+   <Typography sx={{ color: "red", fontSize: 10, textAlign: "center" }}>
+                  * Login required to checkout
+   </Typography>
+              )}
 </Box>
   </Paper>
  </Box>

@@ -71,7 +71,7 @@ export default function SingleProduct(){
         {product.desc}
         </Typography>
         <Typography sx ={{mt:{xs:1,md:2}}}>
-         {product.price}
+         ${product.price}
         </Typography>
  
         <Box sx={{width:"100%",mt:2}}>
