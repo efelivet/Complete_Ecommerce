@@ -18,7 +18,7 @@ if (!FLUTTERWAVE_SECRET_KEY) {
 }
 
 
-router.post("/c", verifyToken, async (req, res) => {
+router.post("/create", verifyToken, async (req, res) => {
   try {
     const userId = req.user.id;
     const { shippingAddress } = req.body;
@@ -88,7 +88,7 @@ router.post("/c", verifyToken, async (req, res) => {
       tx_ref,
       amount: totalAmount,
       currency: "NGN",
-      redirect_url: "https://ecommax-site.onrender.com/paymentsuccess", 
+      redirect_url: "http://localhost:3000/paymentsuccess", 
       customer: {
         email: req.user.email,
         name: req.user.username || req.user.email.split("@")[0],
