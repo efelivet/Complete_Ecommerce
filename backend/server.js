@@ -15,7 +15,7 @@ const orderRoute = require("./routes/paymentVerify.js") ;
 
 app.use(
   cors({
-    origin:["https://ecommax-site.onrender.com","http://localhost:3000"],
+    origin:["https://ecommerce-frontend-1rnb.onrender.com","http://localhost:3000"],
        credentials: true,
   })
 );
