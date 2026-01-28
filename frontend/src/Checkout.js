@@ -29,7 +29,7 @@ const [shipping, setShipping] = useState({
  
    const dispatch = useDispatch();
 
-console.log(user)
+
 const handleCheckout = async () => {
 
 if (!user) {

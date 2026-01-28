@@ -239,6 +239,7 @@ const drawerLinks = [
               <Link to ="/checkout" style ={{textDecoration:"none"}}>
             <Button  onClick={() => setActive(!active)}
       sx={{
+        
         display:"flex",
         padding:"0.4rem",
          backgroundColor: active ? "orange" : "white",
@@ -250,11 +251,11 @@ const drawerLinks = [
       }}>
 
               <ShoppingCartOutlinedIcon sx ={{fontSize:"large"}}/>
-              <Typography sx ={{fontSize:{xs:"0.8rem",md:"1.5rem"}}}>Cart</Typography>
+              <Typography sx ={{fontSize:{xs:"0.8rem",md:"1.5rem"},m:0.6}}>Cart</Typography>
             </Button>
           
 
-           <Box sx ={{position:"absolute", top:-4, right:-1, color:"orange" }}>          
+           <Box sx ={{position:"absolute", top:-4, right:-1, color:"orange",fontSize:{xs:"1rem",md:"1.2rem"} }}>          
              {totalQty}    
            </Box>
            </Link>
@@ -270,6 +271,7 @@ const drawerLinks = [
             <StyledInputBase
               placeholder="Search…"
               inputProps={{ 'aria-label': 'search' }}
+              onChange={handleInputChange}
             />
     
           </Search> 
