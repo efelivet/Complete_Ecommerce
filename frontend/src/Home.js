@@ -2,7 +2,7 @@
  import {Box} from "@mui/material"
  import {useState, useEffect} from "react";
  import {API} from "./api";
- import SearchBar from "./SearchBar";
+ import NavBar from "./NavBar";
  import Gadget from "./Gadget";
 import Slider from "./Slider"
  import GallerySwiper from "./GallerySwiper";
@@ -34,7 +34,7 @@ const [searchQuery, setSearchQuery] = useState("");
   };
     return(
         <Box>
-        <SearchBar onSearchChange={setSearchQuery}/>
+        <NavBar onSearchChange={setSearchQuery}/>
          <Box sx ={{backgroundColor:"#fff"}}>
             
               <Box sx ={{backgroundColor:"green",p:"2px 8px"}}>

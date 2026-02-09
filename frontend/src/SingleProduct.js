@@ -5,7 +5,7 @@ import {Box,Typography,Button} from "@mui/material"
 import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 import CircularProgress from '@mui/material/CircularProgress';
 
-import SearchBar from "./SearchBar";
+import NavBar from "./NavBar";
 import { useDispatch } from "react-redux";
 import { addToCart } from "./redux/cartSlice";
 import {API} from "./api";
@@ -55,16 +55,16 @@ export default function SingleProduct(){
  if (!product) return <p style={{display:"flex",justifyContent:"center"}}><CircularProgress/></p>;
   return(
   <>
-  <SearchBar/>
+  <NavBar/>
 
-   <Box sx={{display:"flex",justifyContent:"space-evenly",mt:4}}>
+   <Box sx={{display:"flex",justifyContent:"space-evenly"}}>
    
        <Box sx ={{maxWidth:{xs:150,md:250}}}>
         <img src ={`${BASE_URL}/Public/img/${product.img}`} alt =""
          style ={{width:"100%",height:"auto",objectFit:"cover"}} />
        </Box>
-       <Box>
-        <Typography sx ={{mt:{xs:4,md:6}}}>
+       <Box sx={{display:"flex",justifyContent:"center",alignItems:"center",flexDirection:"column"}}>
+        <Typography >
         {product.title}
         </Typography>
         <Typography sx ={{mt:{xs:1,md:2}}}>
@@ -73,23 +73,8 @@ export default function SingleProduct(){
         <Typography sx ={{mt:{xs:1,md:2}}}>
          ${product.price}
         </Typography>
- 
-        <Box sx={{width:"100%",mt:2}}>
-             <Box  variant ="contained" sx ={{display:"flex", backgroundColor:"orange",
-              width:{xs:100,md:300}, alignItems:"center", }} >
-                <Box >
-                   <ShoppingCartOutlinedIcon sx ={{fontSize:"medium",ml:"8px",
-                   }}/> 
-                </Box>
-             
-    <Button  onClick={handleAddToCart} 
-    sx ={{fontSize:"10px",margin:"auto",
-    textTransform:'none'}} >
-               Add to Cart
-    </Button>
-                 
-             </Box> 
-        
+
+                
   <Box sx={{display:"flex",alignItems:"center",justifyContent:"center",mt:1}}>
         <button style={{width:20}}
           aria-label="Decrement value"
@@ -106,6 +91,23 @@ export default function SingleProduct(){
           +
         </button>
     </Box>
+ 
+        <Box sx={{width:"100%",mt:2}}>
+             <Box  variant ="contained" sx ={{display:"flex", backgroundColor:"orange",
+              width:{xs:100,md:300}, alignItems:"center", }} >
+                <Box >
+                   <ShoppingCartOutlinedIcon sx ={{fontSize:"medium",ml:"8px",
+                   }}/> 
+                </Box>
+             
+    <Button  onClick={handleAddToCart} 
+    sx ={{fontSize:"10px",margin:"auto",
+    textTransform:'none'}} >
+               Add to Cart
+    </Button>
+                 
+             </Box> 
+
         </Box>
        
   

@@ -1,7 +1,7 @@
   import React from 'react'
 
  import {Box, TextField, Typography,Container,Paper,Button, CircularProgress} from '@mui/material'
-
+import NavBar from "./NavBar";
  import {useState} from 'react';
 import { Link, useNavigate} from "react-router-dom";
 import { loginUser, clearAuthState } from "./redux/authSlice";
@@ -39,7 +39,7 @@ import {useDispatch, useSelector} from "react-redux"
   };
 
     return(
-
+<><NavBar/>
   <Container maxWidth ="sm" sx={{mt:10,display:"flex",
    justifyContent:"center",alignItems:"center",
   
@@ -129,5 +129,6 @@ import {useDispatch, useSelector} from "react-redux"
    </Paper>
 
   </Container>
+   </>
     )
  }

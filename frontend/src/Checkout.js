@@ -1,8 +1,8 @@
 import * as React from "react";
-import {Box,Typography,Button,Paper} from "@mui/material"
+import {Box,Typography,Button,Paper, TextField} from "@mui/material"
 import { useState } from "react";
 import DeleteOutlineOutlinedIcon from '@mui/icons-material/DeleteOutlineOutlined';
-import SearchBar from "./SearchBar";
+import NavBar from "./NavBar";
 import {useSelector} from "react-redux"
 import { useDispatch } from "react-redux";
 import { removeFromCart, updateCartQty } from "./redux/cartSlice";
@@ -66,12 +66,13 @@ if (!user) {
   
   return(
   <>
-  <SearchBar/>
-  <Box sx ={{display:"flex",justifyContent:"space-between",gap:2,mt:2,flexWrap:{xs:"wrap",md:"nowrap"},}}>
+  <NavBar/>
+  <Box sx ={{display:"flex",justifyContent:"space-between",gap:2,mt:2,m:1,flexDirection:{xs:"column",md:"row"}}}>
     
-<Box sx ={{display:"flex", flex:{xs:1,md:2},justifyContent:"space-between",gap:2,flexDirection:"column" }}>
+<Box sx ={{display:"flex",flex:2,justifyContent:"space-between",gap:1,flexDirection:"column" }}>
   {cart.map((product)=>(
-    <Paper key={product.productId._id} elevation={2} sx ={{display:"flex",flexDirection:{xs:"column",md:"row"},gap:{xs:1,md:10}}}>
+    <Paper key={product.productId._id} elevation={2} >
+    <Box sx={{display:"flex",justifyContent:"space-between"}}>
     <Box sx ={{display:"flex",flexDirection:{xs:"colum",md:"row"}}}>  
       <Box >
     <Box> 
@@ -97,11 +98,11 @@ if (!user) {
     )
   }>
       <Box><DeleteOutlineOutlinedIcon sx={{color:"orange"}}/></Box>
-      <Box sx={{color:"orange",fontSize:10}}>remove</Box>
+      <Box sx={{color:"orange",fontSize:"1rem"}}>remove</Box>
       </Button>
     </Box> 
     </Box>
-    <Box>{product.productId.desc} </Box> 
+    <Box sx={{fontSize:"1rem"}}>{product.productId.desc} </Box> 
     </Box>  
   <Box sx ={{display:"flex",flexDirection:"column",alignItems:"center"}}>
     <Typography >${product.productId?.price ? product.productId.price.toLocaleString() : "0.00"}</Typography>
@@ -117,7 +118,7 @@ if (!user) {
     }>
     -
    </Button>
-     <Typography >
+     <Typography sx={{fontSize:"1rem"}}>
     {product.quantity}
      </Typography>
    <Button  onClick={() =>
@@ -132,45 +133,51 @@ if (!user) {
    </Button>
   </Box>
   </Box>
+  </Box> 
   </Paper>
   ))}
 
  
  </Box> 
 
- <Box sx ={{flex:{xs:1,md:2}}}>
+ <Box sx ={{flex:1}}>
  <Box sx={{display:"flex",justifyContent:"center"}}>
   <Paper elevation={2} >
-     <Typography variant="h6" sx={{textAlign:"center",fontSize:{xs:15,md:20},color:"orange"}} >Shipping Address</Typography>
-<form style ={{display:"flex",flexDirection:"column"}}>
-  <input placeholder="Full Name" 
+     <Typography variant="h6" sx={{textAlign:"center",fontSize:{xs:"1rem",md:"2"},color:"orange"}} >Shipping Address</Typography>
+<form style ={{display:"flex",flexDirection:"column",padding:4,}}>
+  <TextField  label="Full Name" sx={{marginBottom:0.5}}
+    fullWidth
     value={shipping.fullName}
     onChange={(e) => setShipping({ ...shipping, fullName: e.target.value })}
   />
 
-  <input placeholder="Phone"
+  <TextField  label="Phone"  sx={{marginBottom:0.5}}
+    fullWidth
     value={shipping.phone}
     onChange={(e) => setShipping({ ...shipping, phone: e.target.value })}
   />
 
-  <input placeholder="Address"
+  <TextField  label="Address"  sx={{marginBottom:0.5}}
+    fullWidth
     value={shipping.address}
     onChange={(e) => setShipping({ ...shipping, address: e.target.value })}
   />
 
-  <input placeholder="City"
+  <TextField  label="City"  sx={{marginBottom:0.5}}
+    fullWidth
     value={shipping.city}
     onChange={(e) => setShipping({ ...shipping, city: e.target.value })}
   />
 
-  <input placeholder="State"
+  <TextField  label="State" sx={{marginBottom:0.5}}
+    fullWidth
     value={shipping.state}
     onChange={(e) => setShipping({ ...shipping, state: e.target.value })}
   />
   </form>
   <Box sx={{display:"flex",justifyContent:"center",flexDirection:"column",mt:{xs:2,md:1}}}>
-  <Typography sx={{textAlign:"center"}}>CART SUMMARY</Typography>
-  <Typography  sx={{textAlign:"center"}}>subtotal ${amount}</Typography>
+  <Typography sx={{textAlign:"center",fontSize:"1.2rem"}}>CART SUMMARY</Typography>
+  <Typography  sx={{textAlign:"center",fontSize:"1rem"}}>subtotal ${amount}</Typography>
   <Button
   variant="contained"
   sx={{ margin: 2,bgcolor:"orange"}}

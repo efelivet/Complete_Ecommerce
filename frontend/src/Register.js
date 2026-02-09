@@ -3,6 +3,7 @@
   import {Box, TextField, Typography,Container,Paper,Button,CircularProgress} from '@mui/material'
   import {useState} from "react"
   import {Link, useNavigate} from "react-router-dom"
+  import NavBar from "./NavBar";
  import { useDispatch, useSelector } from "react-redux";
 import { registerUser, clearAuthState } from "./redux/authSlice";
   export default function Register(){
@@ -41,6 +42,7 @@ import { registerUser, clearAuthState } from "./redux/authSlice";
   }
 
      return(
+      <> <NavBar/>
    <Container maxWidth ="sm" sx={{mt:6,display:"flex",
     justifyContent:"center",alignItems:"center",
    
@@ -69,7 +71,7 @@ import { registerUser, clearAuthState } from "./redux/authSlice";
        label ="password"
        onChange={(e)=>setPassword(e.target.value)} />
 
-       <TextField  sx={{maxWidth:300}} type ="Password"
+       <TextField  sx={{maxWidth:300,mb:1}} type ="Password"
        value={confirmPassword}
        label ="confirm password"
        onChange={(e)=>setConfirmPassword(e.target.value)} />
@@ -84,9 +86,9 @@ import { registerUser, clearAuthState } from "./redux/authSlice";
      <Button
   type="submit"
   variant="contained"
-  fullWidth
+  smallWidth
   sx={{
-    mt: 3,
+    mt: 2,
     backgroundColor: "#1976d2",
     "&:hover": { backgroundColor: "#539ce6ff" },
     borderRadius: 2,
@@ -130,16 +132,44 @@ import { registerUser, clearAuthState } from "./redux/authSlice";
 </Button>
 
 
-       <Typography variant ="body2">
-         Already have an account?{" "}
-         <Link to="/login" style={{color:"#2e7d32",textDecoration:"none"}}>
-         Login
-         </Link>
-       </Typography>
+     <Box
+  sx={{
+    mt: 2,
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    gap: 0.5,
+    flexWrap: "wrap", // allows clean wrap instead of ugly line break
+    textAlign: "center",
+  }}
+>
+  <Typography variant="body2">
+    Already have an account?
+  </Typography>
+
+  <Typography
+    variant="body2"
+    component={Link}
+    to="/login"
+    sx={{
+      color: "#2e7d32",
+      textDecoration: "none",
+      fontWeight: 500,
+      whiteSpace: "nowrap", // keeps "Login" on one line
+      "&:hover": {
+        textDecoration: "underline",
+      },
+    }}
+  >
+    Login
+  </Typography>
+</Box>
+
      
     </Box>
     </Paper>
  
    </Container>
+   </>
      )
   }

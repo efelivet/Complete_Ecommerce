@@ -77,7 +77,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 }));
 
 
-export default function SearchBar({ onSearchChange }) {
+export default function NavBar({ onSearchChange }) {
 
 
 const drawerLinks = [
@@ -132,10 +132,12 @@ const drawerLinks = [
     >
     
       <MenuItem onClick={handleMenuClose}>
-      <Link to ="/register" style={{textDecoration:"none",color:"orange",cursor:"pointer"}}> Sign In</Link>
+      <Link to ="/register" style={{textDecoration:"none",color:"orange",cursor:"pointer"}}> Sign Up</Link>
      
       </MenuItem>
-      <MenuItem onClick={handleMenuClose}>My account</MenuItem>
+      <MenuItem onClick={handleMenuClose}>
+     <Link to ="/login" style={{textDecoration:"none",color:"orange",cursor:"pointer"}}>Login</Link>
+      </MenuItem>
     </Menu>
   );
   
@@ -184,7 +186,7 @@ const drawerLinks = [
               width: "100%",
               justifyContent:"space-evenly",
               alignItems: "center",
-              flexWrap:{xs:"wrap",md:"nowrap"} ,   // 🔥 allows items to move to next line on mobile
+              flexWrap:{xs:"wrap",md:"nowrap"} ,   
               gap: 1,   }}>
           {/* Menu Button */}
           <IconButton
@@ -250,12 +252,12 @@ const drawerLinks = [
         },
       }}>
 
-              <ShoppingCartOutlinedIcon sx ={{fontSize:"large"}}/>
-              <Typography sx ={{fontSize:{xs:"0.8rem",md:"1.5rem"},m:0.6}}>Cart</Typography>
+              <ShoppingCartOutlinedIcon sx ={{fontSize:"large",color:"orange"}}/>
+              <Typography sx ={{fontSize:{xs:"0.8rem",md:"1.5rem"},m:0.6,color:"orange"}}>Cart</Typography>
             </Button>
           
 
-           <Box sx ={{position:"absolute", top:-4, right:-1, color:"orange",fontSize:{xs:"1rem",md:"1.2rem"} }}>          
+           <Box sx ={{position:"absolute", top:-4, right:1, color:"orange",fontSize:{xs:"1rem",md:"1.2rem"} }}>          
              {totalQty}    
            </Box>
            </Link>
