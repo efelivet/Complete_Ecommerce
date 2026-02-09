@@ -244,11 +244,11 @@ const drawerLinks = [
         
         display:"flex",
         padding:"0.4rem",
-         backgroundColor: active ? "orange" : "white",
+         backgroundColor: active ? "#fff3e0" : "white",
         color: active ? "white" : "black",
        
         "&:hover": {
-          backgroundColor: active ? "orange" : "#fff3e0", 
+          backgroundColor: active ? "#fff" : "#fff3e0", 
         },
       }}>
 
@@ -257,7 +257,7 @@ const drawerLinks = [
             </Button>
           
 
-           <Box sx ={{position:"absolute", top:-4, right:1, color:"orange",fontSize:{xs:"1rem",md:"1.2rem"} }}>          
+           <Box sx ={{position:"absolute", top:-2, right:4, color:"orange",fontSize:{xs:"1rem",md:"1.2rem"} }}>          
              {totalQty}    
            </Box>
            </Link>

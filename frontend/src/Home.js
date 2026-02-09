@@ -40,7 +40,7 @@ const [searchQuery, setSearchQuery] = useState("");
               <Box sx ={{backgroundColor:"green",p:"2px 8px"}}>
       <Box sx ={{display:"flex",width:"100%",mb:1}}>
         <Box sx ={{width:"20%",display:{xs:"none",md:"flex",
-           backgroundColor:"white", height:"220px"}}}>
+           backgroundColor:"white", height:"260px"}}}>
           <Gadget
            onCategoryClick={handleCategorySelect} 
             />

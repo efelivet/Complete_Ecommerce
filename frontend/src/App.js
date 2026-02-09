@@ -2,6 +2,7 @@ import './App.css';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./Home";
 import Checkout from "./Checkout";
+import PaymentVerification from "./PaymentVerification";
 import PaymentSuccess from "./PaymentSuccess";
 import SingleProduct from "./SingleProduct";
 import Register from "./Register"
@@ -12,6 +13,7 @@ function App() {
      <Routes>
       <Route path="/" element={  <Home/>} />
        <Route path="/checkout" element={<Checkout />} />
+       <Route path="/paymentverify" element={<PaymentVerification />} />
        <Route path="/paymentsuccess" element={<PaymentSuccess />} />
        <Route path="/singleproduct/:id" element={<SingleProduct />} />
        <Route path="/register" element={<Register />} />

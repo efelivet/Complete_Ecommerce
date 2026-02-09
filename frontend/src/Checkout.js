@@ -9,6 +9,7 @@ import { removeFromCart, updateCartQty } from "./redux/cartSlice";
 import { useNavigate } from "react-router-dom";
 import {API} from './api'
 import { BASE_URL } from "./api";
+import CircularProgress from '@mui/material/CircularProgress';
 const Checkout =() =>{
    
 const [loading, setLoading] = useState(false);
@@ -84,7 +85,7 @@ if (!user) {
             />
           ) : (
             <Box sx={{ width: 100, height: "100px", bgcolor: "#eee", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 10 }}>
-              No Image
+              < CircularProgress/>
             </Box>
           )}
      </Box> 
@@ -145,31 +146,36 @@ if (!user) {
   <Paper elevation={2} >
      <Typography variant="h6" sx={{textAlign:"center",fontSize:{xs:"1rem",md:"2"},color:"orange"}} >Shipping Address</Typography>
 <form style ={{display:"flex",flexDirection:"column",padding:4,}}>
-  <TextField  label="Full Name" sx={{marginBottom:0.5}}
+  <TextField  label="Full Name" sx={{marginBottom:0.5, }}
+    size="small"
     fullWidth
     value={shipping.fullName}
     onChange={(e) => setShipping({ ...shipping, fullName: e.target.value })}
   />
 
   <TextField  label="Phone"  sx={{marginBottom:0.5}}
+    size="small"
     fullWidth
     value={shipping.phone}
     onChange={(e) => setShipping({ ...shipping, phone: e.target.value })}
   />
 
   <TextField  label="Address"  sx={{marginBottom:0.5}}
+    size="small"
     fullWidth
     value={shipping.address}
     onChange={(e) => setShipping({ ...shipping, address: e.target.value })}
   />
 
   <TextField  label="City"  sx={{marginBottom:0.5}}
+    size="small"
     fullWidth
     value={shipping.city}
     onChange={(e) => setShipping({ ...shipping, city: e.target.value })}
   />
 
   <TextField  label="State" sx={{marginBottom:0.5}}
+    size="small"
     fullWidth
     value={shipping.state}
     onChange={(e) => setShipping({ ...shipping, state: e.target.value })}

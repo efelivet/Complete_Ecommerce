@@ -40,7 +40,7 @@ const categories = [
           }}
         >
           <Box>{cat.icon}</Box>
-          <Typography sx={{ fontSize: "0.85rem", ml: 1 }}>{cat.name}</Typography>
+          <Typography sx={{ fontSize: "1.2rem", ml: 1 }}>{cat.name}</Typography>
         </Box>
       ))}
 
